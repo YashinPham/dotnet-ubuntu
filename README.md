@@ -60,9 +60,10 @@ sudo ufw status
 ```
 ### Step 3 – Checking your Web Server
 ```bash
-systemctl status nginx
+sudo systemctl status nginx
 ```
-### Step 4 – Managing the Nginx Process
+**You can also managing the Nginx Process**
+
 To stop your web server, type:
 ```bash
 sudo systemctl stop nginx
@@ -88,7 +89,7 @@ To re-enable the service to start up at boot, you can type:
 sudo systemctl enable nginx
 ```
 You have now learned basic management commands and should be ready to configure the site to host more than one domain.
-### Step 5: Configure Nginx
+### Step 4: Configure Nginx
 To configure Nginx as a reverse proxy to forward HTTP requests to your ASP.NET Core app, modify **/etc/nginx/sites-available/default**. Open it in a text editor, and replace the contents with the following snippet:
 ```ngnix
 server {
@@ -106,12 +107,12 @@ server {
     }
 }
 ```
-### Step 6: Run .NET publish
+### Step 5: Run .NET publish
 Run dotnet publish from the development environment to package an app into a directory (for example, bin/Release/{TARGET FRAMEWORK MONIKER}/publish, where the placeholder {TARGET FRAMEWORK MONIKER} is the Target Framework Moniker/TFM) that can run on the server:
 ```bash
 dotnet publish --configuration Release
 ```
-### Step 7: Create service File
+### Step 6: Create service File
 Create the service definition file:
 ```bash
 sudo nano /etc/systemd/system/kestrel-APPLICATIONNAME.service
