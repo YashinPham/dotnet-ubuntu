@@ -108,7 +108,7 @@ server {
 ```
 ### Step 6: Run .NET publish
 Run dotnet publish from the development environment to package an app into a directory (for example, bin/Release/{TARGET FRAMEWORK MONIKER}/publish, where the placeholder {TARGET FRAMEWORK MONIKER} is the Target Framework Moniker/TFM) that can run on the server:
-```.NET cli
+```bash
 dotnet publish --configuration Release
 ```
 ### Step 7: Create service File
