@@ -105,7 +105,8 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
     }
-}```
+}
+```
 ### Step 5: Run .NET publish
 Run dotnet publish from the development environment to package an app into a directory (for example, bin/Release/{TARGET FRAMEWORK MONIKER}/publish, where the placeholder {TARGET FRAMEWORK MONIKER} is the Target Framework Moniker/TFM) that can run on the server:
 ```bash
