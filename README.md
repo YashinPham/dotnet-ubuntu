@@ -93,20 +93,19 @@ You have now learned basic management commands and should be ready to configure 
 To configure Nginx as a reverse proxy to forward HTTP requests to your ASP.NET Core app, modify **/etc/nginx/sites-available/default**. Open it in a text editor, and replace the contents with the following snippet:
 ```ngnix
 server {
-    listen        80;
-    server_name   example.com *.example.com;
+    listen 8080;
+    server_name _;
     location / {
-        proxy_pass         http://127.0.0.1:5000;
+        proxy_pass http://127.0.0.1:5000;
         proxy_http_version 1.1;
-        proxy_set_header   Upgrade $http_upgrade;
-        proxy_set_header   Connection keep-alive;
-        proxy_set_header   Host $host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection keep-alive;
+        proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
-        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header   X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
-}
-```
+}```
 ### Step 5: Run .NET publish
 Run dotnet publish from the development environment to package an app into a directory (for example, bin/Release/{TARGET FRAMEWORK MONIKER}/publish, where the placeholder {TARGET FRAMEWORK MONIKER} is the Target Framework Moniker/TFM) that can run on the server:
 ```bash
