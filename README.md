@@ -107,7 +107,7 @@ server {
     }
 }
 ```
-enable Nginx YOUR_SITE_NAME then restart Ngnix
+Enable Nginx YOUR_SITE_NAME then restart Ngnix
 ```ngnix
 sudo ln -s /etc/nginx/sites-available/YOUR_SITE_NAME /etc/nginx/sites-enabled
 sudo systemctl restart nginx
