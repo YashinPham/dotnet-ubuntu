@@ -90,7 +90,7 @@ sudo systemctl enable nginx
 ```
 You have now learned basic management commands and should be ready to configure the site to host more than one domain.
 ### Step 4: Configure Nginx
-To configure Nginx as a reverse proxy to forward HTTP requests to your ASP.NET Core app, modify **/etc/nginx/sites-available/default**. Open it in a text editor, and replace the contents with the following snippet:
+To configure Nginx as a reverse proxy to forward HTTP requests to your ASP.NET Core app, modify **/etc/nginx/sites-available/SITE_NAME. Open it in a text editor, and replace the contents with the following snippet:
 ```ngnix
 server {
     listen 8080;
@@ -106,6 +106,10 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
+```
+Enable Nginx site:
+```ngnix
+sudo ln -s /etc/nginx/sites-available/SITE_NAME /etc/nginx/sites-enabled
 ```
 ### Step 5: Run .NET publish
 Run dotnet publish from the development environment to package an app into a directory (for example, bin/Release/{TARGET FRAMEWORK MONIKER}/publish, where the placeholder {TARGET FRAMEWORK MONIKER} is the Target Framework Moniker/TFM) that can run on the server:
